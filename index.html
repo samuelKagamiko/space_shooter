@@ -20,10 +20,13 @@
     </style>
 </head>
 <body>
+    <!-- Le canvas où Macroquad va dessiner le jeu -->
     <canvas id="glcanvas" tabindex='1'></canvas>
 
+    <!-- Chargement du module JS avec le chemin absolu du dépôt GitHub Pages -->
     <script type="module">
-        import init from "./space_shooter.js";
+        // Si votre dépôt s'appelle "space_shooter", l'URL de base inclut "/space_shooter/"
+        import init from "/space_shooter/space_shooter.js";
         
         async function run() {
             await init();
