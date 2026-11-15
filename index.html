@@ -23,16 +23,16 @@
     <!-- Le canvas où Macroquad va dessiner le jeu -->
     <canvas id="glcanvas" tabindex='1'></canvas>
 
-    <!-- Chargement du module JS avec le chemin absolu du dépôt GitHub Pages -->
+    <!-- Script d'initialisation de wasm-bindgen -->
     <script type="module">
-        // Si votre dépôt s'appelle "space_shooter", l'URL de base inclut "/space_shooter/"
         import init from "/space_shooter/space_shooter.js";
-        
-        async function run() {
+
+        async function main() {
+            // Initialisation du module WASM généré
             await init();
         }
-        
-        run();
+
+        main().catch(console.error);
     </script>
 </body>
 </html>
