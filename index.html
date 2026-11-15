@@ -2,37 +2,18 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Shooter</title>
     <style>
-        body {
-            margin: 0;
-            background-color: #0d0d1a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-        canvas {
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
-        }
+        body { margin: 0; background: #0d0d1a; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        canvas { box-shadow: 0 0 20px rgba(0,0,0,0.8); }
     </style>
 </head>
 <body>
-    <!-- Le canvas où Macroquad va dessiner le jeu -->
     <canvas id="glcanvas" tabindex='1'></canvas>
-
-    <!-- Script d'initialisation de wasm-bindgen -->
-    <script type="module">
-        import init from "/space_shooter/space_shooter.js";
-
-        async function main() {
-            // Initialisation du module WASM généré
-            await init();
-        }
-
-        main().catch(console.error);
+    <!-- Chargement direct sans module -->
+    <script src="/space_shooter/space_shooter.js"></script>
+    <script>
+        wasm_bindgen("/space_shooter/space_shooter_bg.wasm").catch(console.error);
     </script>
 </body>
 </html>
