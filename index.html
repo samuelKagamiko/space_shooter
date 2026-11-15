@@ -23,13 +23,14 @@
     <!-- Le canvas où Macroquad va dessiner le jeu -->
     <canvas id="glcanvas" tabindex='1'></canvas>
 
-    <!-- Chargement compatible avec la cible bundler -->
+    <!-- Chargement correct avec la cible bundler -->
     <script type="module">
-        import init, * as wasmModule from "/space_shooter/space_shooter.js";
+        // Importation des fonctions nommées générées par wasm-bindgen
+        import * as wasmModule from "/space_shooter/space_shooter.js";
 
         async function main() {
-            // Initialisation du module WASM avec son fichier .wasm associé
-            await init("/space_shooter/space_shooter_bg.wasm");
+            // Initialisation du module WASM en passant le chemin du fichier .wasm
+            await wasmModule.default("/space_shooter/space_shooter_bg.wasm");
         }
 
         main().catch(console.error);
